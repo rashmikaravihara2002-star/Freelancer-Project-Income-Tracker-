@@ -1,296 +1,302 @@
 # Freelancer Project & Income Tracker
 
-A modern, full-stack web application designed for independent freelancers, contractors, and creative professionals to manage clients, track project milestones, record income transactions, monitor cashflow health, and generate PDF invoices & financial reports.
-
-Built as an individual Software Engineering project with a responsive SaaS UI, RESTful Node.js API, MongoDB database, JWT authentication, and interactive Recharts data visualization.
+A comprehensive, production-ready full-stack web application designed for independent freelancers, contractors, and agency professionals to streamline client management, monitor project deadlines and milestones, track received and pending payments, analyze cashflow trends, and generate professional PDF invoices and reports.
 
 ---
 
-## 🚀 Live Features
-
-### 1. 🔐 Authentication & Security
-- **User Registration**: Secure account creation with field validation and duplicate email protection.
-- **JWT Authentication**: Encrypted JSON Web Tokens stored in localStorage and attached via Axios request interceptors.
-- **Password Security**: Password hashing with `bcryptjs` (salt factor 10) and hidden from query responses (`select: false`).
-- **Protected Routes**: React client-side route guards and Express backend authorization middleware ensuring users access only their own data.
-- **Session Verification**: Automatic token verification on reload (`/api/auth/me`) and graceful expired session recovery.
-- **Demo Quick-Login**: 1-click demo login button for instant grading and evaluation.
-
-### 2. 📊 Analytical Dashboard
-- **Summary Cards**: Real-time KPI cards for Active Projects, Total Projects, Total Income Earned, and Pending Receivables.
-- **Monthly Income Bar Chart**: Dynamic visual breakdown comparing received income vs pending invoices across months using **Recharts**.
-- **Project Status Distribution**: Donut chart visualizing project pipeline statuses (*Pending*, *In Progress*, *Completed*, *Cancelled*).
-- **Recent Projects Table**: Quick view of latest contracts with status and fee indicators.
-- **Recent Income Activity**: Transaction feed showing latest payments and method tags.
-
-### 3. 👥 Client Management
-- **Full CRUD**: Add, edit, view, and delete client contacts.
-- **Client Profiles**: Name, email, phone, company, address, website, and rich notes/preferences.
-- **Client Details Modal**: Shows detailed contact info, associated project history, and total lifetime revenue billed.
-- **Live Search**: Search clients by name, email, company, or phone number.
-- **Cascade Cleanup**: Deleting a client automatically cleans up their associated projects and payments.
-
-### 4. 📁 Project Management
-- **Full CRUD**: Create, edit, inspect, and delete projects.
-- **Detailed Attributes**: Project Name, Client selector, Category, Start Date, Deadline, Status, Fee, and Priority level.
-- **Automated Payment Status Calculation**: Dynamic tracking (*Pending*, *Partially Paid*, *Paid*) based on recorded client payments.
-- **Project Overview Modal**: Shows financial progress bar (% funded), remaining balance, and full payment audit history.
-- **Search & Multi-Filters**: Filter by Client, Project Status, Payment Status, or keyword search.
-
-### 5. 💵 Income & Payment Tracking
-- **Full CRUD**: Record and adjust income payments linked to projects and clients.
-- **Attributes**: Project, Client, Amount, Payment Date, Payment Status (*Paid* / *Pending*), Payment Method (*Bank Transfer*, *Stripe*, *PayPal*, *Credit Card*, *Crypto*, *Cash*), Invoice Number, and Notes.
-- **Financial Metrics**: Real-time calculation of Total Income, Pending Invoices, and Current Month revenue.
-- **Search & Date Filtering**: Search by invoice reference or notes, filter by payment method, status, or date range.
-
-### 6. 📄 Reports & Invoice Generation (Optional Features Implemented)
-- **Interactive Invoice Viewer**: Preview formatted invoice receipts.
-- **PDF Invoice Download**: 1-click client PDF invoice generation powered by `jspdf` and `jspdf-autotable`.
-- **CSV Data Export**: Download transaction histories in `.csv` format for accounting or spreadsheet tools.
-- **Financial Summary PDF Report**: Export landscape financial statements summarizing payments and receivables.
-
-### 7. 👤 Profile & Account Settings
-- **Profile Customization**: Update name, professional title, phone, studio/company name, address, bio, and preferred currency.
-- **Security Settings**: Change account password with current password verification.
-
----
-
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
 ### Frontend
-- **React.js (v18)** - Component-based user interface
-- **Vite** - High-performance frontend build tool and dev server
-- **Tailwind CSS** - Modern utility-first responsive styling
-- **React Router DOM (v6)** - Client-side routing and protected routes
-- **Recharts** - Responsive charting library for financial dashboards
-- **Axios** - Promise-based HTTP client with token interceptors
-- **Lucide React** - Clean and consistent modern icons
-- **React Hot Toast** - Toast notification system
-- **jsPDF & jsPDF-AutoTable** - Client-side PDF generation for invoices and financial statements
-- **Date-fns** - Lightweight date formatting utility
+- **React.js (v18)** – Modern component-based declarative UI
+- **Vite** – Next-generation fast frontend tooling and dev server
+- **Tailwind CSS** – Modern utility-first responsive styling framework
+- **React Router (v6)** – Client-side routing with protected route guards
+- **Recharts** – Composable SVG data visualizations (Bar & Donut charts)
+- **Axios** – Promise-based HTTP client with automatic JWT bearer interceptors
+- **Lucide React** – Clean, modern icon set
+- **React Hot Toast** – Smooth, interactive toast notifications
+- **jsPDF & jsPDF-AutoTable** – Client-side PDF generation for invoices and financial statements
+- **Date-fns** – Lightweight and reliable date formatting utilities
 
 ### Backend
-- **Node.js** - Server-side JavaScript runtime
-- **Express.js** - REST API framework
-- **MongoDB** - Document-based NoSQL database
-- **Mongoose (v8)** - ODM model validation and aggregation pipelines
-- **JSONWebToken (JWT)** - Stateless token-based user authentication
-- **bcryptjs** - Password hashing algorithm
-- **CORS** - Cross-Origin Resource Sharing handling
-- **Morgan** - HTTP request logger for development
-- **Dotenv** - Environment variable management
+- **Node.js** – Server-side JavaScript runtime
+- **Express.js** – High-performance REST API routing and middleware framework
+- **MongoDB** – Document-oriented NoSQL database
+- **Mongoose (v8)** – ODM data modeling, strict schema validation, and aggregation pipelines
+- **JWT (JSON Web Tokens)** – Stateless, secure user authentication
+- **bcrypt.js** – Industry-standard password hashing
+- **CORS** – Cross-Origin Resource Sharing handling
+- **Morgan** – HTTP request logger for debugging
+- **Dotenv** – Environment configuration manager
 
 ---
 
-## 🏛️ System Architecture
+## 🌟 Features Summary
+
+### 1. 🔐 Authentication & Protected Access
+- **User Registration**: Form validation, duplicate email prevention, and `bcryptjs` password hashing.
+- **JWT Authentication**: Token-based authentication with automatic session recovery and expiration handling.
+- **Protected Routes**: React route guards and Express authorization middleware guaranteeing user data isolation.
+- **Demo 1-Click Login**: Instant demo credentials access for testing and evaluation.
+
+### 2. 📊 Analytics Dashboard
+- **KPI Summary Cards**: Real-time totals for *Active Projects*, *Total Projects*, *Total Income Earned*, and *Pending Receivables*.
+- **Monthly Income Bar Chart**: Visual breakdown of received income vs. pending invoices month-by-month using Recharts.
+- **Project Status Distribution**: Donut chart displaying pipeline distribution (*Pending*, *In Progress*, *Completed*, *Cancelled*).
+- **Recent Activity Feed**: Quick-access tables displaying latest projects and recent payment transactions.
+
+### 3. 👥 Client Management
+- **Full CRUD Operations**: Create, view, edit, and delete client contacts.
+- **Detailed Profiles**: Store client name, email, phone, company, billing address, website, and private project notes.
+- **Client Overview Modal**: View client contact details alongside all associated projects and total lifetime revenue billed.
+- **Live Search**: Instant search by client name, company, email, or phone number.
+- **Cascade Deletion**: Automatically cleans up associated projects and payment records upon client removal.
+
+### 4. 📁 Project Management
+- **Full CRUD Operations**: Add, edit, inspect, and delete projects.
+- **Attributes**: Project Name, Client selector, Category, Start Date, Deadline, Status, Fee, and Priority.
+- **Dynamic Payment Calculation**: Automatically computes paid balance and updates payment status (*Pending*, *Partially Paid*, *Paid*) as payments are recorded.
+- **Search & Multi-Filters**: Filter projects by Client, Status, Payment Status, or keyword search.
+- **Financial Audit Modal**: Displays funding progress bar (% funded), remaining balance, and historical payment logs.
+
+### 5. 💵 Income & Payment Tracking
+- **Payment Entry**: Record transactions linked to projects with custom invoice references, payment methods (*Bank Transfer*, *Stripe*, *PayPal*, *Credit Card*, *Crypto*, *Cash*), and notes.
+- **Search & Date Filters**: Filter by date range, payment method, project, or payment status.
+- **Financial Calculations**: Real-time aggregation of total income, pending receivables, and current calendar month earnings.
+
+### 6. 📄 Invoicing, PDF & CSV Reports
+- **Interactive Invoice Viewer**: Preview formatted invoice receipts in a modal.
+- **PDF Invoice Export**: 1-click download of styled PDF invoices for clients.
+- **CSV Data Export**: Export payment and revenue histories to `.csv` format for accounting spreadsheets.
+- **Financial Summary PDF Statement**: Download landscape PDF summary reports of all transactions and receivables.
+
+### 7. 👤 Profile & Security Settings
+- Manage personal details, business address, company/studio name, bio, and currency preferences (USD, EUR, GBP, CAD, AUD, INR).
+- Secure password change module with verification of current password.
+
+---
+
+## 📁 Project Structure
 
 ```
-                                +---------------------------+
-                                |  React + Vite Frontend    |
-                                |  (Tailwind CSS + Recharts)|
-                                +-------------+-------------+
-                                              |
-                                              | REST API (JSON / Bearer JWT)
-                                              v
-                                +-------------+-------------+
-                                |    Express.js Server      |
-                                |    (Node.js REST API)     |
-                                +-------------+-------------+
-                                              |
-                     +------------------------+------------------------+
-                     |                        |                        |
-                     v                        v                        v
-        +------------+-----------+   +--------+---------+   +----------+---------+
-        |   Auth & Middleware    |   | API Controllers  |   | Mongoose Models    |
-        |  (JWT, bcryptjs, CORS) |   | (CRUD & Analytics|   | (User, Client,     |
-        +------------------------+   +------------------+   |  Project, Income)  |
-                                                            +----------+---------+
-                                                                       |
-                                                                       v
-                                                            +----------+---------+
-                                                            |  MongoDB Database  |
-                                                            +--------------------+
+Freelancer Project & Income Tracker/
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── db.js                 # MongoDB connection
+│   │   ├── controllers/
+│   │   │   ├── authController.js      # Auth & Profile logic
+│   │   │   ├── clientController.js    # Client CRUD & stats
+│   │   │   ├── projectController.js   # Project CRUD & status sync
+│   │   │   ├── incomeController.js    # Payment tracking & metrics
+│   │   │   └── dashboardController.js # Analytics & Chart data
+│   │   ├── middleware/
+│   │   │   ├── authMiddleware.js      # JWT verification guard
+│   │   │   └── errorMiddleware.js     # Centralized error handler
+│   │   ├── models/
+│   │   │   ├── User.js                # User schema & bcrypt hashing
+│   │   │   ├── Client.js              # Client schema
+│   │   │   ├── Project.js             # Project schema
+│   │   │   └── Income.js              # Payment / Income schema
+│   │   ├── routes/
+│   │   │   ├── authRoutes.js
+│   │   │   ├── clientRoutes.js
+│   │   │   ├── projectRoutes.js
+│   │   │   ├── incomeRoutes.js
+│   │   │   └── dashboardRoutes.js
+│   │   ├── utils/
+│   │   │   ├── generateToken.js       # JWT signer
+│   │   │   └── seedData.js            # Sample data seeder
+│   │   ├── app.js                     # Express app setup & CORS
+│   │   └── server.js                  # Entrypoint bootstrap
+│   ├── .env                           # Server environment variables
+│   ├── .env.example
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── axios.js               # Axios instance with JWT interceptor
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx        # Auth state provider
+│   │   ├── components/
+│   │   │   ├── charts/
+│   │   │   │   ├── MonthlyIncomeChart.jsx
+│   │   │   │   └── ProjectStatusChart.jsx
+│   │   │   ├── clients/
+│   │   │   │   ├── ClientModal.jsx
+│   │   │   │   └── ClientDetailsModal.jsx
+│   │   │   ├── projects/
+│   │   │   │   ├── ProjectModal.jsx
+│   │   │   │   └── ProjectDetailsModal.jsx
+│   │   │   ├── income/
+│   │   │   │   ├── IncomeModal.jsx
+│   │   │   │   └── InvoicePreviewModal.jsx
+│   │   │   ├── common/                # StatCard, Modal, ConfirmDialog, FormInput, etc.
+│   │   │   └── layout/                # Sidebar, Navbar, AppLayout, ProtectedRoute
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Clients.jsx
+│   │   │   ├── Projects.jsx
+│   │   │   ├── Income.jsx
+│   │   │   ├── Profile.jsx
+│   │   │   └── NotFound.jsx
+│   │   ├── utils/
+│   │   │   ├── formatters.js          # Currency & date formatters
+│   │   │   ├── exportPdf.js           # jsPDF generators
+│   │   │   └── exportCsv.js           # CSV file exporter
+│   │   ├── App.jsx                    # Routing & route guards
+│   │   ├── index.css                  # Tailwind styles
+│   │   └── main.jsx                   # React root entrypoint
+│   ├── index.html
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   └── package.json
+├── .env.example
+├── .gitignore
+├── package.json                       # Root orchestration script
+└── README.md
 ```
 
 ---
 
-## 📦 Installation & Setup
+## ⚙️ Environment Variables Setup
+
+Create a `.env` file inside the `backend/` directory (or duplicate `backend/.env.example`):
+
+```env
+PORT=5000
+MONGODB_URI=mongodb://127.0.0.1:27017/freelancer_tracker
+JWT_SECRET=freelancer_super_secret_jwt_key_2026_secure
+JWT_EXPIRE=30d
+NODE_ENV=development
+CLIENT_URL=http://localhost:5173
+```
+
+### Explanation of Environment Variables:
+| Variable | Description | Example / Default |
+|---|---|---|
+| `PORT` | Port for Express server | `5000` |
+| `MONGODB_URI` | MongoDB connection string (Local or MongoDB Atlas) | `mongodb://127.0.0.1:27017/freelancer_tracker` |
+| `JWT_SECRET` | Secret key used to sign and verify JSON Web Tokens | `your_secret_key` |
+| `JWT_EXPIRE` | Token validity duration | `30d` |
+| `NODE_ENV` | Application environment | `development` or `production` |
+| `CLIENT_URL` | Frontend URL allowed for CORS | `http://localhost:5173` |
+
+---
+
+## 📦 Installation & Setup Instructions
 
 ### Prerequisites
-- **Node.js**: v18.0 or higher (`node -v`)
-- **npm**: v9.0 or higher (`npm -v`)
-- **MongoDB**: MongoDB Server running locally or MongoDB Atlas connection URI
+- **Node.js** (v18.x or higher) – [Download Node.js](https://nodejs.org/)
+- **npm** (v9.x or higher)
+- **MongoDB** running locally (`mongod` / Windows Service) or a MongoDB Atlas URI
 
 ---
 
-### Quick Start (Automated)
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/your-username/freelancer-project-tracker.git
+cd "Freelancer Project & Income Tracker"
+```
 
-1. **Clone the repository**:
+---
+
+### Step 2: Backend Setup
+1. Navigate to the `backend` directory:
    ```bash
-   git clone https://github.com/your-username/freelancer-project-tracker.git
-   cd "Freelancer Project & Income Tracker"
+   cd backend
    ```
-
-2. **Setup Server Environment Variables**:
-   In `server/` directory, create a `.env` file (or copy `.env.example`):
-   ```env
-   PORT=5000
-   MONGODB_URI=mongodb://127.0.0.1:27017/freelancer_tracker
-   JWT_SECRET=freelancer_super_secret_jwt_key_2026_secure
-   JWT_EXPIRE=30d
-   NODE_ENV=development
-   CLIENT_URL=http://localhost:5173
-   ```
-
-3. **Install Dependencies**:
+2. Install dependencies:
    ```bash
-   # Install server dependencies
-   cd server
-   npm install
-
-   # Install client dependencies
-   cd ../client
    npm install
    ```
-
-4. **Seed Sample Demo Data**:
-   Populate sample clients, projects, and income transactions:
+3. Ensure `.env` is created with your database configuration:
    ```bash
-   cd ../server
+   cp .env.example .env
+   ```
+4. Seed the database with realistic sample data:
+   ```bash
    npm run seed
    ```
+5. Start the backend development server:
+   ```bash
+   npm run dev
+   ```
+   *The backend REST API will start at `http://localhost:5000`.*
 
-5. **Start Both Applications**:
-   - **Terminal 1 (Backend API)**:
-     ```bash
-     cd server
-     npm run dev
-     ```
-     Server will start at `http://localhost:5000`.
+---
 
-   - **Terminal 2 (Frontend Client)**:
-     ```bash
-     cd client
-     npm run dev
-     ```
-     Client will start at `http://localhost:5173`.
+### Step 3: Frontend Setup
+1. In a new terminal, navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   *The frontend client will start at `http://localhost:5173`.*
 
 ---
 
 ## 🔑 Demo Account Credentials
 
-You can use the built-in 1-click demo button on the login page or enter:
+You can use the built-in 1-click **"Fill & Login with Demo Account"** button on the login screen or enter:
 - **Email**: `demo@freelancer.com`
 - **Password**: `password123`
 
 ---
 
-## 🌐 API Documentation
+## 🌐 API Reference
 
-### Authentication Endpoints
-| Method | Endpoint | Description | Auth Required |
+### Authentication (`/api/auth`)
+| Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| `POST` | `/api/auth/register` | Register new freelancer account | No |
-| `POST` | `/api/auth/login` | Login user & return JWT token | No |
-| `GET` | `/api/auth/me` | Fetch authenticated user profile | Yes |
+| `POST` | `/api/auth/register` | Register new user | No |
+| `POST` | `/api/auth/login` | Login user & return JWT | No |
+| `GET` | `/api/auth/me` | Fetch logged-in user profile | Yes |
 | `PUT` | `/api/auth/profile` | Update profile information | Yes |
-| `PUT` | `/api/auth/change-password` | Change user password | Yes |
+| `PUT` | `/api/auth/change-password` | Update user password | Yes |
 
-### Clients Endpoints
-| Method | Endpoint | Description | Auth Required |
+### Clients (`/api/clients`)
+| Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| `GET` | `/api/clients` | Get all clients (supports `?search=`) | Yes |
-| `POST` | `/api/clients` | Create new client record | Yes |
-| `GET` | `/api/clients/:id` | Get single client with projects & payments | Yes |
-| `PUT` | `/api/clients/:id` | Update client details | Yes |
-| `DELETE` | `/api/clients/:id` | Delete client and cascade delete | Yes |
+| `GET` | `/api/clients` | List all clients (supports `?search=`) | Yes |
+| `POST` | `/api/clients` | Add new client | Yes |
+| `GET` | `/api/clients/:id` | Get single client details with project history | Yes |
+| `PUT` | `/api/clients/:id` | Edit client information | Yes |
+| `DELETE` | `/api/clients/:id` | Delete client and cascade related records | Yes |
 
-### Projects Endpoints
-| Method | Endpoint | Description | Auth Required |
+### Projects (`/api/projects`)
+| Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| `GET` | `/api/projects` | Get projects (`?search=&status=&clientId=&paymentStatus=`) | Yes |
+| `GET` | `/api/projects` | List projects (`?search=&status=&clientId=&paymentStatus=`) | Yes |
 | `POST` | `/api/projects` | Create new project | Yes |
-| `GET` | `/api/projects/:id` | Get project details and financial breakdown | Yes |
-| `PUT` | `/api/projects/:id` | Update project | Yes |
+| `GET` | `/api/projects/:id` | Get project details and payment audit | Yes |
+| `PUT` | `/api/projects/:id` | Edit project details | Yes |
 | `DELETE` | `/api/projects/:id` | Delete project and related payments | Yes |
 
-### Income & Payment Endpoints
-| Method | Endpoint | Description | Auth Required |
+### Income (`/api/income`)
+| Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| `GET` | `/api/income` | Get payments (`?search=&projectId=&paymentStatus=&startDate=&endDate=`) | Yes |
-| `POST` | `/api/income` | Record income payment (auto-updates project paid status) | Yes |
-| `GET` | `/api/income/:id` | Get payment details with invoice metadata | Yes |
-| `PUT` | `/api/income/:id` | Update payment entry | Yes |
-| `DELETE` | `/api/income/:id` | Delete payment entry and recalculate project | Yes |
+| `GET` | `/api/income` | List payments (`?search=&projectId=&paymentStatus=&startDate=&endDate=`) | Yes |
+| `POST` | `/api/income` | Record payment (auto-synchronizes project status) | Yes |
+| `GET` | `/api/income/:id` | Get payment details with invoice reference | Yes |
+| `PUT` | `/api/income/:id` | Update payment details | Yes |
+| `DELETE` | `/api/income/:id` | Delete payment & recalculate project balance | Yes |
 
-### Dashboard Endpoints
-| Method | Endpoint | Description | Auth Required |
+### Dashboard (`/api/dashboard`)
+| Method | Endpoint | Description | Auth |
 |---|---|---|---|
-| `GET` | `/api/dashboard/stats` | Get KPI metrics and recent project/income lists | Yes |
-| `GET` | `/api/dashboard/monthly-income` | Aggregate income by month for Bar Chart | Yes |
-| `GET` | `/api/dashboard/project-status` | Aggregate project counts by status for Pie Chart | Yes |
-
----
-
-## 🗄️ Database Schema Design
-
-### 1. `User` Schema
-- `name` (String, required)
-- `email` (String, unique, required)
-- `password` (String, hashed, select: false)
-- `title` (String)
-- `phone` (String)
-- `company` (String)
-- `address` (String)
-- `bio` (String)
-- `currency` (String, default: "USD")
-- `timestamps` (createdAt, updatedAt)
-
-### 2. `Client` Schema
-- `userId` (ObjectId -> User, indexed)
-- `name` (String, required)
-- `email` (String, required)
-- `phone` (String)
-- `company` (String)
-- `address` (String)
-- `website` (String)
-- `notes` (String)
-- `timestamps` (createdAt, updatedAt)
-
-### 3. `Project` Schema
-- `userId` (ObjectId -> User, indexed)
-- `clientId` (ObjectId -> Client, indexed)
-- `projectName` (String, required)
-- `description` (String)
-- `startDate` (Date)
-- `deadline` (Date, required)
-- `status` (Enum: `['Pending', 'In Progress', 'Completed', 'Cancelled']`)
-- `fee` (Number, min: 0)
-- `paidAmount` (Number, default: 0)
-- `paymentStatus` (Enum: `['Pending', 'Partially Paid', 'Paid']`)
-- `category` (String)
-- `priority` (Enum: `['Low', 'Medium', 'High', 'Urgent']`)
-- `timestamps` (createdAt, updatedAt)
-
-### 4. `Income` Schema
-- `userId` (ObjectId -> User, indexed)
-- `projectId` (ObjectId -> Project, indexed)
-- `clientId` (ObjectId -> Client, indexed)
-- `amount` (Number, min: 0.01)
-- `paymentDate` (Date)
-- `paymentStatus` (Enum: `['Paid', 'Pending']`)
-- `paymentMethod` (Enum: `['Bank Transfer', 'Stripe', 'PayPal', 'Credit Card', 'Crypto', 'Cash', 'Other']`)
-- `invoiceNumber` (String)
-- `notes` (String)
-- `timestamps` (createdAt, updatedAt)
-
----
-
-## 🔮 Future Enhancements
-- Recurring retainer invoicing and automated payment email reminders.
-- Stripe Connect integration for live credit card checkout links.
-- Multi-currency conversion via real-time exchange rate APIs.
-- Time tracker widget with pomodoro timer linked to hourly project billing.
+| `GET` | `/api/dashboard/stats` | KPI summary cards & recent activities | Yes |
+| `GET` | `/api/dashboard/monthly-income` | Monthly revenue aggregation for Bar Chart | Yes |
+| `GET` | `/api/dashboard/project-status` | Status distribution for Donut Chart | Yes |
 
 ---
 

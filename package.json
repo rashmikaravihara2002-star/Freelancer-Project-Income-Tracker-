@@ -2,14 +2,16 @@
   "name": "freelancer-project-and-income-tracker",
   "version": "1.0.0",
   "description": "Full-Stack Freelancer Project & Income Tracker application built with React, Node.js, Express, MongoDB, and Tailwind CSS",
-  "main": "server/src/server.js",
+  "main": "backend/src/server.js",
   "scripts": {
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm run dev",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
+    "seed": "cd backend && npm run seed",
+    "build": "cd frontend && npm run build"
   },
   "keywords": [
     "freelancer",
